@@ -2,6 +2,7 @@
 import React from 'react';
 
 const SearchBox = ({ onSearch }) => {
+    // TODO: update placeholder
     return (
         <input 
             type="text"
