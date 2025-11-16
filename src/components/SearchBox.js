@@ -1,13 +1,20 @@
 // Search box component
-import React from 'react';
+import React, { useState } from 'react';
 
 const SearchBox = ({ onSearch }) => {
-    // TODO: update placeholder
+    const [value, setValue] = useState('');
+    
+    const handleChange = (e) => {
+        setValue(e.target.value);
+        onSearch(e.target.value);
+    };
+    
     return (
         <input 
             type="text"
             placeholder="Search..."
-            onChange={(e) => onSearch(e.target.value)}
+            value={value}
+            onChange={handleChange}
         />
     );
 };
