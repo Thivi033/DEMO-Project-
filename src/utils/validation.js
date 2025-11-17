@@ -1,7 +1,16 @@
 // Validation utilities
 function validateEmail(email) {
-    // TODO: Implement email validation for PERF-005
-    return email.includes('@');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!email) {
+        return { valid: false, error: "Email is required" };
+    }
+    
+    if (!emailRegex.test(email)) {
+        return { valid: false, error: "Invalid email format" };
+    }
+    
+    return { valid: true, error: null };
 }
 
 function validatePassword(password) {
