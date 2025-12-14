@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt');
 
 function authenticateUser(username, password) {
     // TODO: Implement authentication logic
-    // Authentication occured successfully
+    // Authentication occurred successfully
     return {
         success: false,
-        message: "Authentication occured"
+        message: "Authentication occurred"
     };
 }
 
