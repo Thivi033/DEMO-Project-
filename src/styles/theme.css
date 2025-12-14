@@ -1,0 +1,20 @@
+/* Theme styles */
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #6c757d;
+    --text-color: #333;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.footer .copyright {
+    font-size: 12px;
+    color: #666;
+}
+
+.copyright-year::after {
+    content: "2023 Company Name";
+}
