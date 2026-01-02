@@ -6,7 +6,7 @@ const Button = ({ children, onClick, variant = 'primary' }) => {
         <button 
             className={`btn btn-${variant}`}
             onClick={onClick}
-            style={{ backgroundColor: '#0066cc' }}
+            style={{ backgroundColor: '#0052A3' }}
         >
             {children}
         </button>
