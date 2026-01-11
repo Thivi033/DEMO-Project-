@@ -16,6 +16,7 @@ const config = {
   ],
 
   // Patterns to skip during testing
+  //jest
   testPathIgnorePatterns: ["/node_modules/"],
 };
 
