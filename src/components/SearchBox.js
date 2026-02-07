@@ -1,25 +1,44 @@
 // Search box component
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './SearchBox.css';
 
-const SearchBox = ({ onSearch }) => {
+// Custom debounce hook
+const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [value, delay]);
+
+    return debouncedValue;
+};
+
+const SearchBox = ({ onSearch, debounceDelay = 300 }) => {
     const [value, setValue] = useState('');
-    
-    const handleChange = (e) => {
+    const debouncedValue = useDebounce(value, debounceDelay);
+
+    useEffect(() => {
+        if (onSearch) {
+            onSearch(debouncedValue);
+        }
+    }, [debouncedValue, onSearch]);
+
+    const handleChange = useCallback((e) => {
         setValue(e.target.value);
-        onSearch(e.target.value);
-    };
-    
+    }, []);
+
     return (
         <div className="search-box-container">
-            <input 
+            <input
                 type="text"
                 className="search-input"
-<<<<<<< HEAD
-                placeholder="Search the products..."
-=======
                 placeholder="Search products..."
->>>>>>> b2b209ea73c4794d607d270a58162b1df68a7ba7
                 value={value}
                 onChange={handleChange}
             />
